@@ -70,4 +70,7 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.comments
-    
+    class Meta:
+        ordering = ['-comment_date']
+    def save_comment(self):
+        return self.save()
