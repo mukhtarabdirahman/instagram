@@ -36,8 +36,12 @@ class Image(models.Model):
     profile = models.ForeignKey(Profile,on_delete=models.CASCADE)
     likes = models.PositiveIntegerField(default=0)
     
+    def __str__(self):
+        return self.caption
+    class Meta:
+        ordering = ['-upload_date']
 
-
+    
     
     
     
