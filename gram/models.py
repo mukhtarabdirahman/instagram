@@ -74,3 +74,5 @@ class Comment(models.Model):
         ordering = ['-comment_date']
     def save_comment(self):
         return self.save()
+    def delete_comment(self):
+        self.delete()
