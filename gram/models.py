@@ -76,3 +76,8 @@ class Comment(models.Model):
         return self.save()
     def delete_comment(self):
         self.delete()
+        
+    @classmethod
+    def get_comment(cls):
+        comment = Comment.objects.all()
+        return comment
