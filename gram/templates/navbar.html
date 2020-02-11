@@ -1,17 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<nav class="navbar navbar-light bg-light">
+<div class="">
+            {% if user.is_authenticated %}
+            <ul>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                          <span class="caret"></span>
+                      </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="">Home</a>
+                  </li>
+                  <li>
+                    <a href="/accounts/password/change">Change Password</a>
+                  </li>
+                  <li>
+                    <a href="/logout">Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            {% else %}
+            <li>
+              <a class='btn btn-default' href="/accounts/login">Login</a>
+            </li>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="">Instagram</a>
-    </div>
-  </div>
+            {% endif %}
+          </div>
+  <a class="navbar-brand">Instagram</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+   
 </nav>
-</body>
-</html>

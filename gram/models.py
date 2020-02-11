@@ -29,7 +29,7 @@ class Profile(models.Model):
         return updated
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='uploads/', null=True)
+    image = models.ImageField(upload_to='uploads/')
     caption = models.CharField(max_length = 60)
     upload_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
@@ -53,9 +53,9 @@ class Image(models.Model):
         return captioned
 
     @classmethod
-    def get_images(cls):
-        image = Image.objects.all()
-        return image
+    def get_all(cls):
+        imgs = Image.objects.all()
+        return imgs
 
     @classmethod
     def get_image_by_id(cls,id):

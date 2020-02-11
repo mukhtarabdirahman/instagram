@@ -1,18 +1,14 @@
 from django.shortcuts import render
 from .models import Profile, Image,Comment
+from django.http  import HttpResponse
+from django.contrib.auth.decorators import login_required
 # Create your views here.
-def index (request):
-    title = 'gram :-)'
-    current_user = request.user
-    profile = Profile.get_profile()
-    image = Image.get_images()
-    comments = Comment.get_comment()
-    
-    
-    
-    
-    return render(request, 'index.html',{"title":title,
-                                        "profile":profile,
-                                        "comments":comments,
-                                        "current_user":current_user,
-                                        "images":image,})
+
+def welcome(request):
+    return render(request,"base.html")
+
+@login_required(login_url='/accounts/login/')
+def home(request):
+    posts = Image.get_all()
+    return render(request, 'index.html', { 'posts': posts})
+
