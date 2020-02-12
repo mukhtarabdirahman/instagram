@@ -29,7 +29,7 @@ class Profile(models.Model):
         return updated
 
 class Image(models.Model):
-    image = models.ImageField(upload_to='uploads/')
+    image = models.ImageField()
     caption = models.CharField(max_length = 60)
     upload_date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
