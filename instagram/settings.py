@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 MODE=config("MODE", default="dev")
-SECRET_KEY = config('q@p%_a5(by=0#&od41f2!6gst@eyb)@p$4uc4!b#ko_g&tya0+')
+SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 # development
 if config('MODE')=="dev":
@@ -47,7 +47,6 @@ else:
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # SECURITY WARNING: keep the secret key used in production secret!
 
